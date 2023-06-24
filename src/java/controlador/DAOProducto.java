@@ -13,7 +13,15 @@ import modelo.Producto;
 public class DAOProducto extends Conexion {
 
     Connection cnn = conectar();
-
+    //Prueba git 2
+    
+    public void funcionnueva(){
+        System.out.println("Hola mundo");
+    }
+    
+    public void funcionvieja(){
+        System.out.println("Hola mundo 2");
+    }
     public void registrarProducto(String procod, String pronom, String proimg, double propre, String protipo) throws SQLException {
         String sql = "Insert into producto Values(?,?,?,?,?)";
         Statement set = cnn.createStatement();
