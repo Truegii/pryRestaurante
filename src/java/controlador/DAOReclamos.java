@@ -1,7 +1,6 @@
 package controlador;
 
 import conexion.Conexion;
-import static conexion.Conexion.conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,8 +11,9 @@ import java.util.List;
 import modelo.Reclamos;
 
 
-public class DAOReclamos extends Conexion{
-    Connection cnn = conectar();
+public class DAOReclamos{
+    Conexion con =  Conexion.getInstance();
+    Connection cnn = con.getConnection();
     public void registraReclamo(String cod, String nombre, String dni, String correo, String servicio, String comentario) throws SQLException {
         String sql = "Insert into reclamos Values(?,?,?,?,?,?)";
         Statement set = cnn.createStatement();
@@ -44,7 +44,14 @@ public class DAOReclamos extends Conexion{
             String servicio = rs.getString(5);
             String comentario = rs.getString(6);
 
-            Reclamos r = new Reclamos(cod, nombres, dni, correo, servicio,comentario);
+            Reclamos r = new Reclamos.Builder()
+                    .id(cod)
+                    .nombres(nombres)
+                    .dni(dni)
+                    .correo(correo)
+                    .servicio(servicio)
+                    .comentario(comentario)
+                    .build();
             listaRec.add(r);
 
         }

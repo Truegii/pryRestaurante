@@ -44,10 +44,10 @@
                             <a class="nav-link" href="../ReservaListar?filtro=usuario">MIS RESERVACIONES</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="FacturaListar?filtro=usuario">FACTURAS</a>
+                            <a class="nav-link" href="../FacturaListar?filtro=usuario">FACTURAS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="paginas/Carrito.jsp">CARRITO</a>
+                            <a class="nav-link" href="Carrito.jsp">CARRITO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="Login.jsp">INICIAR SESION</a>

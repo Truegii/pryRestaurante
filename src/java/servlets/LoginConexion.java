@@ -34,7 +34,11 @@ public class LoginConexion extends HttpServlet {
             AccesoDatos ad = new AccesoDatos();
             int res = ad.Buscar(nom, cla);
             if (res == 1) {
-                Usuario usu = new Usuario(nom, cla); //Crea objeto usuario
+                Usuario usu =new Usuario.Builder()
+                        .nombre(nom)
+                        .clave(cla)
+                        .build();
+                //Usuario usu = new Usuario(nom, cla); //Crea objeto usuario
                 HttpSession sesion = request.getSession(); //Obtiene una session
                 sesion.setAttribute("usuario", usu); //Establece el usuario dentro de la sesion
                 //Si el usuario es admin, redirige a admin.jsp

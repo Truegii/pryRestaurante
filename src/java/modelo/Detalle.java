@@ -7,13 +7,6 @@ public class Detalle {
     private int cant;
     private double facpre;
 
-    public Detalle(int facnum, String procod, int cant, double facpre) {
-        this.facnum = facnum;
-        this.procod = procod;
-        this.cant = cant;
-        this.facpre = facpre;
-    }
-
     public int getFacnum() {
         return facnum;
     }
@@ -44,6 +37,39 @@ public class Detalle {
 
     public void setFacpre(double facpre) {
         this.facpre = facpre;
+    }
+
+    public static class Builder {
+
+        private Detalle detalle;
+
+        public Builder() {
+            detalle = new Detalle();
+        }
+        
+        public Builder facnum(int facnum){
+            this.detalle.facnum = facnum;
+            return this;
+        }
+        public Builder procod(String procod){
+            this.detalle.procod = procod;
+            return this;
+        }
+        
+        public Builder cantidad(int cantidad){
+            this.detalle.cant = cantidad;
+            return this;
+        }
+        
+        public Builder precio(double precio){
+            this.detalle.facpre = precio;
+            return this;
+        }
+        
+        public Detalle build(){
+            return detalle;
+        }
+
     }
 
 }

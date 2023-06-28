@@ -44,7 +44,10 @@ public class AgregaCarrito extends HttpServlet {
 
         //Añadimos un producto al carrito
         if (!flag) {
-            articulos.add(new Articulo(codigoProducto, cantidad));
+            articulos.add(new Articulo.Builder()
+                    .codigo(codigoProducto)
+                    .cantidad(cantidad)
+                    .build());
         }
 
         sesion.setAttribute("carrito", articulos);

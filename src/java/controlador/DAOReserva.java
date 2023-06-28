@@ -11,9 +11,10 @@ import java.util.List;
 import modelo.Factura;
 import modelo.Reservas;
 
-public class DAOReserva extends Conexion {
+public class DAOReserva {
 
-    Connection cnn = conectar();
+    Conexion con =  Conexion.getInstance();
+    Connection cnn = con.getConnection();
 
     public void registrarReserva(String cod, String email, String fecha, int cantidad, String actividad) throws SQLException {
         String sql = "Insert into reserva Values(?,?,?,?,?)";
@@ -42,7 +43,13 @@ public class DAOReserva extends Conexion {
             int cant = rs.getInt(4);
             String actividad = rs.getString(5);
 
-            Reservas r = new Reservas(cod, email, fecha, cant, actividad);
+            Reservas r = new Reservas.Builder()
+                    .id(cod)
+                    .correo(email)
+                    .fecha(fecha)
+                    .cantidad(cant)
+                    .actividad(actividad)
+                    .build();
             listaRes.add(r);
 
         }
@@ -68,7 +75,13 @@ public class DAOReserva extends Conexion {
             int cant = rs.getInt(4);
             String actividad = rs.getString(5);
 
-            Reservas r = new Reservas(cod, email, fecha, cant, actividad);
+            Reservas r = new Reservas.Builder()
+                    .id(cod)
+                    .correo(email)
+                    .fecha(fecha)
+                    .cantidad(cant)
+                    .actividad(actividad)
+                    .build();
             listaRes.add(r);
 
         }
@@ -94,7 +107,13 @@ public class DAOReserva extends Conexion {
             int cantidad = rs.getInt(4);
             String actividad = rs.getString(5);
 
-            Reservas f = new Reservas(idreserv, correo, fecha, cantidad, actividad);
+            Reservas f = new Reservas.Builder()
+                    .id(idreserv)
+                    .correo(correo)
+                    .fecha(fecha)
+                    .cantidad(cantidad)
+                    .actividad(actividad)
+                    .build();
             listaRes.add(f);
 
         }

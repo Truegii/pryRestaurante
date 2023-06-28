@@ -9,17 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Usuario;
 
-public class AccesoDatos extends Conexion {
+public class AccesoDatos {
 
-    Connection cnn = conectar();
-
+Conexion conexion = Conexion.getInstance();
     //Login
-    public int Buscar(String n, String c) {
+    public int Buscar(String n, String c) throws SQLException {
         int r = 0;
         try {
             PreparedStatement st = null;
             ResultSet rs = null;
-            st = cnn.prepareStatement("SELECT emailusu,passusu FROM usuarios WHERE emailusu=? AND passusu=?");
+            st = conexion.getConnection().prepareStatement("SELECT emailusu,passusu FROM usuarios WHERE emailusu=? AND passusu=?");
             st.setString(1, n);
             st.setString(2, c);
             rs = st.executeQuery();
@@ -29,15 +28,15 @@ public class AccesoDatos extends Conexion {
         } catch (Exception ex) {
             ex.getMessage();
         }
+        conexion.close();
         return r;
     }
 
     //Register
-    public void registrarUsuario(String cod, String nom, String ape,String materno, String pass, String dni, String email) throws SQLException {
+    public void registrarUsuario(String cod, String nom, String ape, String materno, String pass, String dni, String email) throws SQLException {
         String sql = "Insert into usuarios Values(?,?,?,?,?,?,?)";
-        Statement set = cnn.createStatement();
 
-        PreparedStatement pasar = cnn.prepareStatement(sql);
+        PreparedStatement pasar = conexion.getConnection().prepareStatement(sql);
         pasar.setString(1, cod);
         pasar.setString(2, nom);
         pasar.setString(3, ape);
@@ -47,6 +46,7 @@ public class AccesoDatos extends Conexion {
         pasar.setString(7, email);
 
         pasar.executeUpdate();
+        conexion.close();
 
     }
 
@@ -55,7 +55,7 @@ public class AccesoDatos extends Conexion {
         //Obtiene el último codigo de usuario y suma +1
         String sql = "SELECT MAX(codusu)+1 from usuarios;";
         try {
-            Statement stmt = cnn.createStatement();
+            Statement stmt = conexion.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             //Guarda el codigo nuevo en un String
             while (rs.next()) {
@@ -63,37 +63,38 @@ public class AccesoDatos extends Conexion {
 
             }
             stmt.close();
+            conexion.close();
         } catch (Exception ex) {
 
         }
+        
         return cod;
     }
+
     //Olvidaste Contraseña
     public void updateUsuario(String correo, String clave) throws SQLException {
         //Actualiza passusu de la tabla usuarios
         String sql = "UPDATE usuarios SET passusu=? WHERE emailusu=?";
         try {
-            PreparedStatement ps = cnn.prepareStatement(sql);
+            PreparedStatement ps = conexion.getConnection().prepareStatement(sql);
             ps.setString(1, clave);
             ps.setString(2, correo);
             //Ejecuta la consulta
             ps.executeUpdate();
         } catch (SQLException ex) {
         }
+        conexion.close();
     }
-    
+
     //Busca usuario por carreo
-    public static ArrayList<String> buscaUsuario(String correo) throws SQLException {
+    public ArrayList<String> buscaUsuario(String correo) throws SQLException {
         ArrayList usu = null;
-        Connection cnn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         try {
-            cnn = conectar(); // Reemplaza getConnection() con el método para obtener la conexión a la base de datos
-
             String sql = "SELECT * FROM usuarios WHERE emailusu=?";
-            stmt = cnn.prepareStatement(sql);
+            stmt = conexion.getConnection().prepareStatement(sql);
             stmt.setString(1, correo);
             rs = stmt.executeQuery();
             usu = new ArrayList<>();
@@ -114,9 +115,7 @@ public class AccesoDatos extends Conexion {
             if (stmt != null) {
                 stmt.close();
             }
-            if (cnn != null) {
-                cnn.close();
-            }
+            conexion.close();
         }
 
         return usu;

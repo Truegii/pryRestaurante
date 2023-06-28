@@ -9,21 +9,13 @@ package modelo;
  * @author Usuario
  */
 public class Factura {
+
     private int facnum;
     private String corusu;
     private String facfec;
     private String metpago;
     private String direc;
     private double facimp;
-
-    public Factura(int facnum, String corusu, String facfec, String metpago, String direc, double facimp) {
-        this.facnum = facnum;
-        this.corusu = corusu;
-        this.facfec = facfec;
-        this.metpago = metpago;
-        this.direc = direc;
-        this.facimp = facimp;
-    }
 
     public String getMetpago() {
         return metpago;
@@ -71,5 +63,54 @@ public class Factura {
 
     public void setFacimp(double facimp) {
         this.facimp = facimp;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura{" + "facnum=" + facnum + ", corusu=" + corusu + ", facfec=" + facfec + ", metpago=" + metpago + ", direc=" + direc + ", facimp=" + facimp + '}';
+    }
+
+    public static class Builder {
+
+        private Factura factura;
+
+        public Builder() {
+            factura = new Factura();
+        }
+
+        public Builder facnum(int facnum) {
+            this.factura.facnum = facnum;
+            return this;
+        }
+
+        public Builder correo(String correo) {
+            this.factura.corusu = correo;
+            return this;
+        }
+
+        public Builder fecha(String fecha) {
+            this.factura.facfec = fecha;
+            return this;
+        }
+
+        public Builder metodo(String metodo) {
+            this.factura.metpago = metodo;
+            return this;
+        }
+
+        public Builder direccion(String direccion) {
+            this.factura.direc = direccion;
+            return this;
+        }
+
+        public Builder importe(double importe) {
+            this.factura.facimp = importe;
+            return this;
+        }
+
+        public Factura build() {
+            return factura;
+        }
+
     }
 }

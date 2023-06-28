@@ -9,7 +9,10 @@
 <%@page import="modelo.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Producto p = DAOProducto.buscaProducto(request.getParameter("id"));
+    Producto p;
+    String idpro= request.getParameter("id");
+    DAOProducto daop = new DAOProducto();
+    p = daop.buscaProducto(idpro);
     HttpSession sesion = request.getSession(false);
     Usuario usu = (Usuario) sesion.getAttribute("usuario");
 %>

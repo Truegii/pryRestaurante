@@ -97,11 +97,12 @@
                             <%
                                 ArrayList<Articulo> articulos = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
                                 AgregaCarrito ac = new AgregaCarrito();
+                                DAOProducto daop = new DAOProducto();
                                 int contador = 0;
                                 int total = 0;
                                 if (articulos != null) {
                                     for (Articulo a : articulos) {
-                                        Producto producto = DAOProducto.buscaProducto(a.getCodigoProducto());
+                                        Producto producto = daop.buscaProducto(a.getCodigoProducto());
                                         total += a.getCantidad() * producto.getPropre();
                                         contador++;
 
