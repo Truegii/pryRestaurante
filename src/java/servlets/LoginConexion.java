@@ -1,5 +1,7 @@
 package servlets;
 
+import ConcreteStrategy.*;
+
 import controlador.AccesoDatos;
 import controlador.DAOProducto;
 import java.io.IOException;
@@ -41,9 +43,12 @@ public class LoginConexion extends HttpServlet {
                 //Usuario usu = new Usuario(nom, cla); //Crea objeto usuario
                 HttpSession sesion = request.getSession(); //Obtiene una session
                 sesion.setAttribute("usuario", usu); //Establece el usuario dentro de la sesion
+                int rol = ad.obtenerEstado(nom, cla);
+                Logearse logear = new Logearse();
                 //Si el usuario es admin, redirige a admin.jsp
-                if (nom.equals("admin@nagoya.com") && cla.equals("admin")) {
-                    response.sendRedirect("paginas/admin.jsp");
+                if (rol == 1) {
+                    logear.setIUsuario(new Admin());
+                    response.sendRedirect(logear.login());
                 } else {
                     //Sino redirige a Carta.jsp
                     DAOProducto pro = new DAOProducto();
@@ -51,7 +56,8 @@ public class LoginConexion extends HttpServlet {
                     List<Producto> listProd = pro.obtenerProductos();
                     //Establece la lista de productos como atributo y lo manda a Carta
                     request.setAttribute("listaProd", listProd);
-                    RequestDispatcher rd = request.getRequestDispatcher("/paginas/Carta.jsp");
+                    logear.setIUsuario(new Cliente());
+                    RequestDispatcher rd = request.getRequestDispatcher(logear.login());
                     rd.forward(request, response);
                 }
             } else {

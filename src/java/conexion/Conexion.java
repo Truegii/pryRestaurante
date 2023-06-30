@@ -7,7 +7,7 @@ public class Conexion {
 
     private static Conexion instance = null;
     private Connection con;
-    private static String URL = "jdbc:mysql://localhost:3306/bdrestaurante";
+    private static String URL = "jdbc:mysql://localhost:3307/bdrestaurante";
     private static String DRIVER = "com.mysql.jdbc.Driver";
     private static String USER = "root";
     private static String PASS = "";

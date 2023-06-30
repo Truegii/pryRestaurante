@@ -32,9 +32,30 @@ Conexion conexion = Conexion.getInstance();
         return r;
     }
 
+    //obtener el estado del usuario
+    public int obtenerEstado(String n, String c) {
+        int cod=0;
+        //Obtiene el último codigo de usuario y suma +1
+        String sql = "SELECT rol_id from usuarios WHERE emailusu='"+ n +"' AND passusu='" + c + "';";
+        
+        try {
+            Statement stmt = conexion.getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            //Guarda el codigo nuevo en un String
+            while (rs.next()) {
+                cod = rs.getInt(1);
+
+            }
+            stmt.close();
+        } catch (Exception ex) {
+
+        }
+        return cod;
+    }
+    
     //Register
     public void registrarUsuario(String cod, String nom, String ape, String materno, String pass, String dni, String email) throws SQLException {
-        String sql = "Insert into usuarios Values(?,?,?,?,?,?,?)";
+        String sql = "Insert into usuarios Values(?,?,?,?,?,?,?,?)";
 
         PreparedStatement pasar = conexion.getConnection().prepareStatement(sql);
         pasar.setString(1, cod);
@@ -44,7 +65,7 @@ Conexion conexion = Conexion.getInstance();
         pasar.setString(5, pass);
         pasar.setString(6, dni);
         pasar.setString(7, email);
-
+        pasar.setInt(8, 2);
         pasar.executeUpdate();
         conexion.close();
 
@@ -106,7 +127,7 @@ Conexion conexion = Conexion.getInstance();
                 usu.add(rs.getString(5));
                 usu.add(rs.getString(6));
                 usu.add(rs.getString(7));
-
+                usu.add(rs.getString(8));
             }
         } finally {
             if (rs != null) {
