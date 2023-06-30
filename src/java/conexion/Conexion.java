@@ -5,16 +5,37 @@ import java.sql.DriverManager;
 
 public class Conexion {
 
-    public static Connection conectar() {
-        Connection cn = null;
-        
+    private static Conexion instance = null;
+    private Connection con;
+    private static String URL = "jdbc:mysql://localhost:3307/bdrestaurante";
+    private static String DRIVER = "com.mysql.jdbc.Driver";
+    private static String USER = "root";
+    private static String PASS = "";
+
+    private Conexion() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            String url = "jdbc:mysql://localhost:3306/bdrestaurante";
-            cn = DriverManager.getConnection(url, "root", "");
-        } catch (Exception ex) {
-            ex.getMessage(); 
+            Class.forName(DRIVER);
+            con = DriverManager.getConnection(URL, USER, PASS);
+        } catch (Exception e) {
+            System.out.println("Error al conectar: " + e.getMessage());
+            e.printStackTrace();
         }
-        return cn;
     }
+
+    public synchronized static Conexion getInstance() {
+        if (instance == null) {
+            instance = new Conexion();
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
+        return con;
+    }
+
+    public void close() {
+        instance = null;
+    }
+
+
 }

@@ -8,13 +8,13 @@ public class Reservas {
     int cantidad;
     String actividad;
 
-    public Reservas(int idreserva, String correo, String fecha, int cantidad, String actividad) {
-        this.idreserva = idreserva;
-        this.correo = correo;
-        this.fecha = fecha;
-        this.cantidad = cantidad;
-        this.actividad = actividad;
-    }
+//    public Reservas(int idreserva, String correo, String fecha, int cantidad, String actividad) {
+//        this.idreserva = idreserva;
+//        this.correo = correo;
+//        this.fecha = fecha;
+//        this.cantidad = cantidad;
+//        this.actividad = actividad;
+//    }
 
     public int getCantidad() {
         return cantidad;
@@ -54,6 +54,38 @@ public class Reservas {
 
     public void setActividad(String actividad) {
         this.actividad = actividad;
+    }
+    
+    public static class Builder{
+        private Reservas reserva;
+        
+        public Builder(){
+            reserva = new Reservas();
+        }
+        
+        public Builder id(int id){
+            this.reserva.idreserva = id;
+            return this;
+        }
+        public Builder correo(String correo){
+            this.reserva.correo = correo;
+            return this;
+        }
+        public Builder fecha(String fecha){
+            this.reserva.fecha = fecha;
+            return this;
+        }
+        public Builder cantidad(int cant){
+            this.reserva.cantidad = cant;
+            return this;
+        }
+        public Builder actividad(String actividad){
+            this.reserva.actividad = actividad;
+            return this;
+        }
+        public Reservas build(){
+            return reserva;
+        }
     }
 
 }

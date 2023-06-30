@@ -16,14 +16,14 @@ public class Reclamos {
     private String servi;
     private String comentario;
 
-    public Reclamos(int idrec, String nombres, String dni, String correo, String servi, String comentario) {
-        this.idrec = idrec;
-        this.nombres = nombres;
-        this.dni = dni;
-        this.correo = correo;
-        this.servi = servi;
-        this.comentario = comentario;
-    }
+//    public Reclamos(int idrec, String nombres, String dni, String correo, String servi, String comentario) {
+//        this.idrec = idrec;
+//        this.nombres = nombres;
+//        this.dni = dni;
+//        this.correo = correo;
+//        this.servi = servi;
+//        this.comentario = comentario;
+//    }
     
     public int getIdrec() {
         return idrec;
@@ -71,6 +71,42 @@ public class Reclamos {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+    
+    public static class Builder {
+        private Reclamos reclamos;
+        
+        public Builder(){
+            reclamos = new Reclamos();
+        }
+        
+        public Builder id(int id){
+            this.reclamos.idrec = id;
+            return this;
+        }
+        public Builder nombres(String nombres){
+            this.reclamos.nombres = nombres;
+            return this;
+        }
+        public Builder dni(String dni){
+            this.reclamos.dni = dni;
+            return this;
+        }
+        public Builder correo(String correo){
+            this.reclamos.correo = correo;
+            return this;
+        }
+        public Builder servicio(String servicio){
+            this.reclamos.servi = servicio;
+            return this;
+        }
+        public Builder comentario(String comentario){
+            this.reclamos.comentario = comentario;
+            return this;
+        }
+        public Reclamos build(){
+            return reclamos;
+        }
     }
     
     

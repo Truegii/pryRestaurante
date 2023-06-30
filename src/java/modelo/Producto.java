@@ -1,20 +1,20 @@
 package modelo;
 
 public class Producto {
-     private String procod;
+
+    private String procod;
     private String pronom;
     private String proimg;
     private double propre;
     private String protipo;
 
-    public Producto(String procod, String pronom, String proimg, double propre, String protipo) {
-        this.procod = procod;
-        this.pronom = pronom;
-        this.proimg = proimg;
-        this.propre = propre;
-        this.protipo = protipo;
-    }
-
+//    public Producto(String procod, String pronom, String proimg, double propre, String protipo) {
+//        this.procod = procod;
+//        this.pronom = pronom;
+//        this.proimg = proimg;
+//        this.propre = propre;
+//        this.protipo = protipo;
+//    }
     public String getProcod() {
         return procod;
     }
@@ -58,5 +58,41 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" + "procod=" + procod + ", pronom=" + pronom + ", proimg=" + proimg + ", propre=" + propre + ", protipo=" + protipo + '}';
+    }
+
+    public static class Builder {
+        private Producto producto;
+
+        public Builder() {
+            producto = new Producto();
+        }
+
+        
+        public Builder codigo(String codigo){
+            this.producto.procod = codigo;
+            return this;
+        }
+        
+        public Builder nombre(String nombre){
+            this.producto.pronom = nombre;
+            return this;
+        }
+        public Builder imagen(String imagen){
+            this.producto.proimg = imagen;
+            return this;
+        }
+        public Builder precio(double precio){
+            this.producto.propre = precio;
+            return this;
+        }
+        public Builder tipo(String tipo){
+            this.producto.protipo = tipo;
+            return this;
+        }
+        
+        public Producto build(){
+            return producto;
+        }
+        
     }
 }

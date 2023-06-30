@@ -48,9 +48,10 @@ public class AgregaFactura extends HttpServlet {
 
         try {
             for (Articulo a : articulos) {
-                Producto producto = null;
                 //Registra el detalle de la factura
-                producto = DAOProducto.buscaProducto(a.getCodigoProducto());
+                String codigoprod = a.getCodigoProducto();
+                DAOProducto daop = new DAOProducto();
+                Producto producto = daop.buscaProducto(codigoprod);
                 daofac.registrarDetalle(daofac.obtenerCodigo(), a.getCodigoProducto(), a.getCantidad(), producto.getPropre());
 
                 total += a.getCantidad() * producto.getPropre();
