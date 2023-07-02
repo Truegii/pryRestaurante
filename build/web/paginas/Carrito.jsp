@@ -91,6 +91,7 @@
                                 <th scope="col">PRECIO</th>
                                 <th scope="col">CANTIDAD</th>
                                 <th scope="col">TOTAL</th>
+                                <th scope="col">ELIMINAR</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -116,6 +117,9 @@
                                 <td><%=producto.getPropre()%></td>
                                 <td><%=a.getCantidad()%></td>
                                 <td><%=Math.round(producto.getPropre() * a.getCantidad())%></td>
+                                <td>
+                                    <a href="../BorrarCarrito?filtro=DeleteOne&id=<%=contador%>" class="btn btn-danger">Eliminar</a>
+                                </td>
                             </tr>
 
                             <% }
@@ -126,11 +130,17 @@
                         <%}
                             sesion.setAttribute("carrito", articulos);%>
                         <tr id="thcarro" align="center">
-                            <td colspan="5">
+                            <td colspan="6">
                                 <a>El valor total de su compra es: S/.<%= total%></a>
 
                             </td>
 
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td>
+                                <a class="btn btn-primary" href="../BorrarCarrito?filtro=ReDo"> REDO</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -141,8 +151,6 @@
                         <a class="btn btn-dark position-absolute top-0 start-0" href="../ProductoListar?filtro=todos">Seguir comprando</a>
 
                         <input type="submit" class="btn btn-primary position-absolute top-0 start-50" value="Pagar tarjeta"></input>
-
-
 
                     </div>
                 </form>
@@ -158,7 +166,7 @@
                     </div>
                 </form>
 
-                <a href="../BorrarCarrito" class="btn btn-danger">Vaciar Carrito</a>
+                <a href="../BorrarCarrito?filtro=DeleteAll" class="btn btn-danger">Vaciar Carrito</a>
 
                 <div class="mx-auto p-2">
                     <br><h2 class="mt-5">Selecciona tus métodos de pago:</h2>

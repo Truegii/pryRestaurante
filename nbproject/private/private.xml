@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/ConcreteStrategy/Cliente.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/ConcreteStrategy/Admin.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/servlets/AgregaFactura.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/servlets/LoginConexion.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/Interfaces/IUsuario.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/conexion/Conexion.java</file>
-            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/web/paginas/pagar.jsp</file>
+            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/web/paginas/Carrito.jsp</file>
+            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/Memento/Originator.java</file>
+            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/Memento/Caretaker.java</file>
+            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/servlets/ProductoListar.java</file>
+            <file>file:/Users/alex/me/UTP/Ciclo7/Diseño%20y%20Arquitectura%20de%20Software/Proy%20Final/pryRestaurante/src/java/servlets/BorrarCarrito.java</file>
         </group>
     </open-files>
 </project-private>
