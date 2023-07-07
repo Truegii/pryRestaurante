@@ -1,0 +1,228 @@
+<html>
+    <head>
+        <title>Nagoya Restaurant</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body style="font-size: 22px; font-family: Roboto;">
+        <nav class="navbar navbar-expand-lg bg-white navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img style="width: 170px;" id="logo" src="img/logorest.jpg" alt="alt"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="paginas/Reserva.jsp">RESERVAS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ProductoListar?filtro=todos">CARTA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="paginas/Login.jsp">INICIAR SESION</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <style>
+            header.masthead {
+                padding-top: 10.5rem;
+                padding-bottom: 6rem;
+                text-align: center;
+                color: #fff;
+                background-image: url("img/slider1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: cover;
+            }
+            header.masthead .masthead-subheading {
+                font-size: 1.5rem;
+                font-style: italic;
+                line-height: 1.5rem;
+                margin-bottom: 25px;
+                font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+            header.masthead .masthead-heading {
+                font-size: 3.25rem;
+                font-weight: 700;
+                line-height: 3.25rem;
+                margin-bottom: 2rem;
+                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+
+            @media (min-width: 768px) {
+                header.masthead {
+                    padding-top: 17rem;
+                    padding-bottom: 12.5rem;
+                }
+                header.masthead .masthead-subheading {
+                    font-size: 2.25rem;
+                    font-style: italic;
+                    line-height: 2.25rem;
+                    margin-bottom: 2rem;
+                }
+                header.masthead .masthead-heading {
+                    font-size: 4.5rem;
+                    font-weight: 700;
+                    line-height: 4.5rem;
+                    margin-bottom: 4rem;
+                }
+            }
+            .page-section {
+                padding: 6rem 0;
+            }
+            .page-section h2.section-heading, .page-section .section-heading.h2 {
+                font-size: 2.5rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+            .page-section h3.section-subheading, .page-section .section-subheading.h3 {
+                font-size: 1rem;
+                font-weight: 400;
+                font-style: italic;
+                font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                margin-bottom: 4rem;
+            }
+
+            @media (min-width: 768px) {
+                section {
+                    padding: 9rem 0;
+                }
+            }
+            .btn-xl {
+                padding: 1.25rem 2.5rem;
+                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                font-size: 1.125rem;
+                font-weight: 700;
+            }
+
+            .btn-social {
+                height: 2.5rem;
+                width: 2.5rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                border-radius: 100%;
+            }
+            .team-member {
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+            .team-member img {
+                width: 14rem;
+                height: 14rem;
+                border: 0.5rem solid rgba(0, 0, 0, 0.1);
+            }
+            .team-member h4, .team-member .h4 {
+                margin-top: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .img-brand {
+                height: 2.75rem;
+            }
+            .footer {
+                text-align: center;
+                font-size: 0.9rem;
+                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+
+        </style>
+
+
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">¡Bienvenido a Nagoya Perú!</div>
+                <div class="masthead-heading text-uppercase">Gracias por visitarnos</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#team">Ver más</a>
+            </div>
+        </header>
+
+
+
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Nuestra Carta</h2>
+                    <h3 class="section-subheading text-muted">Realiza tu reserva y vive la experiencia de sentirte dentro de un pedacito de Japón en Lima</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="img/amai.jpg" alt="..." />
+                            <h4>Makis</h4>
+                            <p class="text-muted">Amai Tsurai</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="img/ramen.jpg" alt="..." />
+                            <h4>Sushi</h4>
+                            <p class="text-muted">Miso Ramen</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="img/pachicay.jpg" alt="..." />
+                            <h4>Sopas</h4>
+                            <p class="text-muted">Miso Ramen</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">¿Tienes un motivo para celebrar? Ven a Nagoya a disfrutar de esos momentos tan felices con nuestra promo Brindis Time</p>
+                        <p>☎ (01)7625328</p>
+                        <p>📞 934073659</p>
+                        <p>📍 Circunvalación del Golf Los Incas 154 Camacho (5 minutos del Jockey Plaza)</p>
+                        <p>📍 De Lunes a Viernes de 12:00pm a 11:00pm y Domingos de 12:00pm a 6:00pm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Nagoya Perú 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="paginas/Reclamaciones.jsp">Libro de Reclamaciones</a>
+                        <a class="link-dark text-decoration-none" href="#">Terminos de uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
