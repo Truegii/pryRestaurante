@@ -22,6 +22,7 @@ public class ProductoConexion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
     }
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
